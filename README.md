@@ -8,6 +8,7 @@ The objective is to utilize Devcontainer for constructing firmware for an RP2040
 rustup target add x86_64-pc-windows-gnu
 sudo apt update
 sudo apt-get install mingw-w64
+cargo build --target x86_64-pc-windows-gnu
 ```
 
 ```
