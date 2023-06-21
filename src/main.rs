@@ -64,7 +64,7 @@ async fn main() -> Result<()> {
 
     let handler = Arc::new(Mutex::new(FirmwareHandler::new(args.watch_file.clone())));
 
-    #[allow(unreachable_code)]
+    #[allow(unreachable_code)] // we want Ok(()) without necessarily an associated Err.
     let monitor_plugin = {
         let handler = handler.clone();
         async move {
