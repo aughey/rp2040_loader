@@ -2,10 +2,7 @@
 
 Create a web server and writes the posted file to an attached rp2040 pico.
 
-The goal is to use devcontainer to build firmware for an RP2040 with the host machine
-being a native Windows or Linux machine.  This application runs on the host machine and monitors
-the drive that will exist when the RP2040 is plugged in.  When a file is posted to the web server
-it will write the file to the RP2040.
+The objective is to utilize Devcontainer for constructing firmware for an RP2040, employing a host machine that runs on either Windows or Linux natively. This software operates on the host machine and keeps track of the drive that is recognized when the RP2040 is connected. Whenever a file is uploaded to the web server, the software will write this file to the RP2040.
 
 ```
 rustup target add x86_64-pc-windows-gnu
