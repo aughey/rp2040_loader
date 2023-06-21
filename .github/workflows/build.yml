@@ -32,6 +32,4 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          files: 
-            - target/release/loader
-            - target/x86_64-pc-windows-gnu/release/loader.exe
+          files: target/release/loader target/x86_64-pc-windows-gnu/release/loader.exe
