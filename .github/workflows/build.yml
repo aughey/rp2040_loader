@@ -26,7 +26,7 @@ jobs:
         run: cargo build --release
       
       - name: Build Windows
-        run: rustup target add x86_64-pc-windows-gnu && apt update && apt-get install mingw-w64 && cargo build --target x86_64-pc-windows-gnu
+        run: rustup target add x86_64-pc-windows-gnu && sudo apt update && sudo apt-get install mingw-w64 && cargo build --target x86_64-pc-windows-gnu
 
       - name: Create GitHub release
         id: create_release
