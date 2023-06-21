@@ -20,15 +20,10 @@ jobs:
           override: true
 
       - name: Build
-        uses: actions-rs/cargo@v1
-        with:
-          command: build
-          args: --release
+        run: cargo build --release
 
       - name: Create GitHub release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          files: target/release/loader
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          files: target/release/rp2040_loader
