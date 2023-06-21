@@ -34,24 +34,26 @@ impl FirmwareHandler {
         match self.pending_firmware.as_ref() {
             None => {
                 println!("No pending firmware");
-                return;
             }
             Some(firmware) => {
                 println!("Pending firmware exists");
-                if std::path::Path::new(&self.firmware_path).exists() {
-                    println!("Firmware location exists");
-                    println!("Writing Firmware...");
-                    // write firmware to file
+                match std::path::Path::new(&self.firmware_path).exists() {
+                    true => {
+                        println!("Firmware location exists");
+                        println!("Writing Firmware...");
+                        // write firmware to file
 
-                    match std::fs::write(self.firmware_path.clone() + "/firmware", firmware) {
-                        Ok(_) => {
-                            println!("Firmware written");
-                            self.pending_firmware = None;
+                        match std::fs::write(self.firmware_path.clone() + "/firmware", firmware) {
+                            Ok(_) => {
+                                println!("Firmware written");
+                                self.pending_firmware = None;
+                            }
+                            Err(e) => println!("Error writing firmware: {}", e),
                         }
-                        Err(e) => println!("Error writing firmware: {}", e),
                     }
-                } else {
-                    println!("Firmware path doesn't exist: {}", self.firmware_path);
+                    false => {
+                        println!("Firmware path doesn't exist: {}", self.firmware_path);
+                    }
                 }
             }
         }
